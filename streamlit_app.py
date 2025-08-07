@@ -272,7 +272,7 @@ def get_states_for_season(season):
         return []
 
 def main():
-    st.title("❄️ Freeze-Thaw Cycle Data Query")
+    st.title("❄️ Freeze-Thaw Cycle Data")
     st.markdown("Select a season and location details to find freeze-thaw cycle information.")
     
     # Season selection
@@ -319,6 +319,28 @@ def main():
     # Input form
     st.subheader("🔍 Location Query")
     
+    # Add helpful note about coordinates
+    st.info("💡 **Coordinate Tips:** For US locations, longitude values are negative (west of Greenwich). "
+            "For example: Denver, CO is at 39.7392, -104.9903")
+    
+    # # Add expandable section with common city coordinates
+    # with st.expander("📍 Common City Coordinates (Click to expand)"):
+    #     coord_col1, coord_col2 = st.columns(2)
+    #     with coord_col1:
+    #         st.markdown("""
+    #         **Colorado:**
+    #         - Denver: 39.7392, -104.9903
+    #         - Boulder: 40.0150, -105.2705
+    #         - Colorado Springs: 38.8339, -104.8214
+    #         """)
+    #     with coord_col2:
+    #         st.markdown("""
+    #         **Other States:**
+    #         - Salt Lake City, UT: 40.7608, -111.8910
+    #         - Cheyenne, WY: 41.1400, -104.8197
+    #         - Billings, MT: 45.7833, -108.5007
+    #         """)
+    
     col1, col2, col3 = st.columns(3)
     
     with col1:
@@ -346,7 +368,7 @@ def main():
             max_value=180.0,
             value=None,
             format="%.6f",
-            help="Enter longitude in decimal degrees"
+            help="Enter longitude in decimal degrees (negative for US locations, e.g., -104.9903 for Denver)"
         )
     
     # Search button
